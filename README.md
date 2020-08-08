@@ -24,6 +24,10 @@ Fast Fourier Transform Images of the 1T-TaS2 and the material corresponding phas
 The code can be found in the files 
 ## IV. Analysis and Result: 
 ### 1) Angle between atomic lattice and CDW at temperature from 354K - 360K 
-
+- My intial hypothesis: 
+  - The angle between CDW and atomic lattice that near the transition phase (from IC to NC or vice versa) should slowly rotate from 0 deg (IC phase) to 11 – 13 deg (NC Phase)
+- The result: 
+  - 
+### 2) 
 ## V. Conclusion: 
 
