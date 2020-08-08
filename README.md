@@ -19,7 +19,7 @@ Fast Fourier Transform Images of the 1T-TaS2 and the material corresponding phas
 
 ![image](https://user-images.githubusercontent.com/60806068/89607757-40cef400-d841-11ea-8430-d8e2c00e179f.png)
 
-<p> Depending on the scanning parameters as mention above, the resulting image might not contain any useful information. Not only that, the size of the scan is very small, times smaller the material size. These reasons lead to a huge amount of data that needs to be processed so it is definitely to do it manually. Therefore, I develop this automate Python program that assists me in processing 50 data points at a time. The result image can either be a topography image or a FFT image. </p>
+<p> Depending on the scanning parameters as mention above, the resulting image might not contain any useful information. Not only that, the size of the scan is very small, ![img](http://latex.codecogs.com/svg.latex?10%5E%7B-5%7D) times smaller the material size. These reasons lead to a huge amount of data that needs to be processed so it is definitely to do it manually. Therefore, I develop this automate Python program that assists me in processing 50 data points at a time. The result image can either be a topography image or a FFT image. </p>
 
 ## IV. Analysis and Result: 
 ### 1) Angle between atomic lattice and CDW at temperature from 354K - 360K 
