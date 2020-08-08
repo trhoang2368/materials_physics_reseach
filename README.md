@@ -1,4 +1,12 @@
 # Charge Density Wave of 1T-TaS2 using Scanning Tunneling Microscope
+**File's description:**
+- 1T- TaS2-Presentation.pptx: The presentation about my research in PowerPoint 
+- Fall_fest_poster.png: Poster about my finding 
+- Final_version_TH_thesis.docx: My thesis about my finding 
+- Automate-coding-Gwyddion: 
+  - FFT: Python code that automate the image processing from raw data to Fast Fourier Transform image
+  - Topography: Python code that automate the image processing from raw data to Topography image
+  - README.MD
 ## I. Abstract: 
 For this project, I analyzed scanning tunneling microscopy (STM) data to understand the electronic properties in the material TaS2. TaS2 is a material that hosts charge density waves (CDWs). A CDW is a modulation in an electron density within a metal and is accompanied by a periodic lattice distortion and an electronic gap. STM is a reliable tool to observe the atomic structure of a material and how charges arrange themselves. Scientists still do not understand CDW properties on an atomic scale, especially for 1T-TaS2 due to its smaller domain size around ![img](http://latex.codecogs.com/svg.latex?10%5E%7B-7%7D)mm . This means that it would be harder to observe eventhough using a micrscope to scan the service. Studying CDW states above and below their transition temperature will give us an insight into CDW formation and properties.
 ## II. Introduction 
