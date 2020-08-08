@@ -1,0 +1,53 @@
+import gwyutils
+# base name of processed images
+basename = "C:\Users\Burhan Ahmed\Desktop\September\CeTe2_%d_fft.png"
+# counter of open files
+i = 0
+# number of the last image being analyzed
+final =
+# get list of available containers
+cons = gwy.gwy_app_data_browser_get_containers()
+# iterate through containers and datafields
+for c in cons:
+  # get directory of datafields where key is key in container
+  dfields = gwyutils.get_data_fields_dir(c)
+  filename = c.get_string_by_name("/filename")
+  for key in dfields.keys():
+    # get processed datafield object
+    datafield = dfields[key]
+    # retrieve datafield number in container from key (for example '/0/data')
+    datafield_id = key.split('/')[1]
+    namefield = gwy.gwy_app_get_data_field_title(c, int(datafield_id))
+    # only look at the Left Topography
+    if not (namefield == "Topography [Left]"):
+            continue
+    old_plane = datafield.fit_plane()
+    datafield.plane_level(old_plane[0],old_plane[1],old_plane[2])
+    empty = datafield.new_alike()
+    fftre = datafield.new_alike()
+    fftim = datafield.new_alike()
+    datafield.fft2d(empty, fftre, fftim,
+        gwy.WINDOWING_HANN, gwy.TRANSFORM_DIRECTION_FORWARD,
+        gwy.INTERPOLATION_LINEAR, True, 1)
+    fftre.fft_postprocess(True)
+    fftim.fft_postprocess(True)
+    fftre.hypot_of_fields(fftre, fftim) 
+    j = gwy.gwy_app_data_browser_add_data_field(fftre, c, True)
+    key = gwy.gwy_name_from_key(gwy.gwy_app_get_data_title_key_for_id(j))
+    c[key] = 'FFT Modulus'
+    # request redraw before export
+    datafield.data_changed()
+    datafield_id = key.split('/')[1]
+    namefield = gwy.gwy_app_get_data_field_title(c, int(datafield_id))
+    if not (namefield == "FFT Modulus"):
+            continue
+    # export datafield to png, show the export box for only the first image
+    if i == 0:
+      gwyutils.save_dfield_to_png(c, key, basename % (final-i), gwy.RUN_INTERACTIVE)
+    else:
+      gwyutils.save_dfield_to_png(c, key, basename % (final-i), gwy.RUN_NONINTERACTIVE)
+    i += 1
+    # request redraw datawindows with datafields
+    datafield.data_changed()
+    # close the image before the next one is analyzed
+    gwy.gwy_app_data_browser_remove(c)
